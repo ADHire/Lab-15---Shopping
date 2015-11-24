@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shopping List 2.0</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href='https://fonts.googleapis.com/css?family=Rambla:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body ng-app="myModule">
+
+	
+	<div ng-controller="myController">
+
+
+		<div class="ballinAssForm">
+			<h1>My beautiful shopping list</h1>
+			<form>
+				<label>Search by item name or price: <input ng-model="searchText"></label>
+				<ul>
+					<li ng-repeat="items in foods | filter: searchText | orderBy: 'name'">{{items.name | uppercase}} for {{items.price | currency: "$"}}</li>
+				</ul>
+				<p>Your total comes to: <span class="costTotalBaby"> {{total | currency: "$"}}</span></p>
+				<h2 class="foodInput">Need to add more? Not a problem!</h2>
+				<h3>Item Name:</h3>
+				<input type="text" placeholder="Item Name" value="foodName" ng-model="newFoodName"></input>
+				<h3>Item Price:</h3>
+				<input type="float" placeholder="Item Price" value="foodPrice" ng-model="newFoodPrice"></input>
+				<button ng-click="addItem()">Add items!!!!!!</button>
+			</form>
+		</div>
+
+	</div>
+		
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="js/module.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
